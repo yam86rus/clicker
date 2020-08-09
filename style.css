@@ -1,32 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@yam86rus 
-codedojo
-/
-clickr
-1
-11
-Code
-Issues
-Pull requests
-Actions
-Wiki
-Security
-Insights
-clickr/index.css
-@olegpolyakov
-olegpolyakov Rename files
-Latest commit a08f892 on 11 Jun
- History
- 1 contributor
-89 lines (83 sloc)  2.38 KB
-  
 html {
     font-family: 'Press Start 2P';
     font-size: 2rem;
@@ -39,7 +10,7 @@ body {
     justify-content: center;
     width: 100vw;
     height: 100vh;
-    background-color: #222;
+    background: linear-gradient(45deg, rgb(149, 66, 59), rgb(66, 111, 70));
     color: white;
 }
 
@@ -51,11 +22,8 @@ main {
 }
 
 #button {
-    --color: firebrick;
-    --border-color: firebrick;
-    --shadow-color: rgb(112, 20, 20);
-
     position: relative;
+    border-radius: 10px;
     font-size: .75rem;
     width: 200px;
     height: 75px;
@@ -69,62 +37,123 @@ main {
     color: white;
     font-family: 'Press Start 2P', monospace;
     font-weight: bold;
-    background-color: var(--color);
-    box-shadow: 0 -3px var(--color),
-                3px 0 var(--color),
-                0 3px var(--color),
-                -3px 0 var(--color),
-                0 -6px var(--border-color),
-                3px -3px var(--border-color),
-                6px 0 var(--border-color),
-                0 6px var(--border-color),
-                -3px 3px var(--border-color),
-                -6px 0 var(--border-color),
-                -3px -3px var(--border-color),
-                3px 3px var(--border-color),
-                0px 9px var(--shadow-color),
-                3px 6px var(--shadow-color),
-                6px 3px var(--shadow-color),
-                0px 9px var(--shadow-color),
-                -3px 6px var(--shadow-color),
-                -6px 3px var(--shadow-color);
+    background-color: #fc5e32;
+
+
 }
 
 #button:active {
     top: 6px;
-	box-shadow: 0 -3px var(--color),
-                3px 0 var(--color),
-                0 3px var(--color),
-                -3px 0 var(--color),
-                0 -6px var(--border-color),
-                3px -3px var(--border-color),
-                6px 0 var(--border-color),
-                0 6px var(--border-color),
-                -3px 3px var(--border-color),
-                -6px 0 var(--border-color),
-                -3px -3px var(--border-color),
-                3px 3px var(--border-color),
-                0px 6px var(--shadow-color),
-                3px 3px var(--shadow-color),
-                6px 0px var(--shadow-color),
-                0px 6px var(--shadow-color),
-                -3px 3px var(--shadow-color),
-                -6px 0px var(--shadow-color);
 }
 
 #display,
 #counter {
     height: 32px;
 }
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+
+.score {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 50px;
+}
+
+
+.wrapper {
+    position: absolute;
+    bottom: 50px;
+    text-align: center;
+}
+
+.btn {
+    display: none;
+    width: auto;
+    font-family: Arial;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: none;
+    height: 55px;
+    line-height: 55px;
+    font-size: 20px;
+    padding: 0 35px;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    transition: .5s all;
+}
+
+.btn::before {
+    display: block;
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-color: #ff9d6b;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    transition: .3s all;
+    animation: toBottom 3s ease infinite;
+}
+
+.btn::after {
+    display: block;
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-color: #fc5e32;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    transition: .3s all;
+    animation: toTop 3s ease infinite;
+}
+
+.btn:hover {
+    color: white;
+}
+
+.btn:hover::before {
+    width: 100%;
+    height: 100%;
+    top: 10px;
+    left: 10px;
+    animation: none;
+}
+
+.btn:hover::after {
+    width: 100%;
+    height: 100%;
+    animation: none;
+}
+
+@keyframes toBottom {
+    0% {
+        top: 0;
+    }
+
+    50% {
+        top: 40px;
+    }
+
+    100% {
+        top: 0;
+    }
+
+}
+
+@keyframes toTop {
+    0% {
+        bottom: 0;
+    }
+
+    50% {
+        bottom: 40px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+
+}
